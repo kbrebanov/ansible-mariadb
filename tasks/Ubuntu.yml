@@ -1,0 +1,37 @@
+---
+# tasks file for mariadb (Ubuntu specific)
+
+- name: Add MariaDB APT key
+  apt_key: >
+    keyserver=keyserver.ubuntu.com
+    id=0xcbcb082a1bb943db
+    state=present
+  tags: mariadb
+
+- name: Add MariaDB 10.0 APT repository
+  apt_repository: >
+    repo='deb http://nyc2.mirrors.digitalocean.com/mariadb/repo/10.0/ubuntu trusty main'
+    state=present
+  tags: mariadb
+
+- name: Add MariaDB 5.5 APT repository
+  apt_repository: >
+    repo='deb http://nyc2.mirrors.digitalocean.com/mariadb/repo/5.5/ubuntu trusty main'
+    state=present
+  tags: mariadb
+
+- name: Install MariaDB server packages
+  apt: name={{ item }} state=present update_cache=yes cache_valid_time=3600
+  with_items: mariadb_server_packages
+  when: mariadb_server
+  tags:
+    - mariadb
+    - mariadb_server
+
+- name: Install MariaDB client packages
+  apt: name={{ item }} state=present update_cache=yes cache_valid_time=3600
+  with_items: mariadb_client_packages
+  when: mariadb_client
+  tags:
+    - mariadb
+    - mariadb_client

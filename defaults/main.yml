@@ -1,2 +1,7 @@
 ---
 # defaults file for mariadb
+
+mariadb_server_version: 10.0
+mariadb_server: true
+mariadb_client_version: 10.0
+mariadb_client: true

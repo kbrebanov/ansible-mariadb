@@ -1,0 +1,8 @@
+---
+# vars file for mariadb (Ubuntu specific)
+
+mariadb_server_packages:
+  - mariadb-server-{{ mariadb_server_version }}
+mariadb_client_packages:
+  - mariadb-client-{{ mariadb_client_version }}
+mariadb_service_name: mysql
