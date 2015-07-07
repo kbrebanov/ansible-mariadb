@@ -21,7 +21,7 @@
   tags: mariadb
 
 - name: Install MariaDB server packages
-  apt: name={{ item }} state=present update_cache=yes cache_valid_time=3600
+  apt: name={{ item }} state=present update_cache=yes
   with_items: mariadb_server_packages
   when: mariadb_server
   tags:
@@ -29,7 +29,7 @@
     - mariadb_server
 
 - name: Install MariaDB client packages
-  apt: name={{ item }} state=present update_cache=yes cache_valid_time=3600
+  apt: name={{ item }} state=present update_cache=yes
   with_items: mariadb_client_packages
   when: mariadb_client
   tags:
