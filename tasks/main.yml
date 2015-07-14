@@ -23,7 +23,7 @@
   notify: restart mariadb
   when: mariadb_server
   tags:
-    - mariabd
+    - mariadb
     - mariadb_server
 
 - name: Create MariaDB specific configuration file
@@ -36,7 +36,7 @@
   notify: restart mariadb
   when: mariadb_server
   tags:
-    - mariabd
+    - mariadb
     - mariadb_server
 
 - name: Create MariaDB safe syslog configuration file
@@ -49,7 +49,7 @@
   notify: restart mariadb
   when: mariadb_server
   tags:
-    - mariabd
+    - mariadb
     - mariadb_server
 
 - name: Create MariaDB TokuDB configuration file
@@ -62,7 +62,7 @@
   notify: restart mariadb
   when: mariadb_server
   tags:
-    - mariabd
+    - mariadb
     - mariadb_server
 
 - name: Ensure MariaDB server is started and enabled on boot
